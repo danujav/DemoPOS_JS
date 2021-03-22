@@ -90,17 +90,76 @@ btnCustomerUpdate.click( function () {
             $('#custSalary').val(salary);
 
         });
+
+        clearFields();
+    }else{
+
     }
 
+  //loadAllCustomerToTable();
 
-  //      loadAllCustomerToTable();
-    clearFields();
 
 });
 
+btnCustomerDelete.click(function () {
+    let id = $('#customerId').val();
+    let res = deleteCustomer(id);
 
+    let option=confirm(`Do you want to Delete Customer : ${id}`);
+
+    if(option){
+        if(res){
+            alert("Customer Deleted..!");
+            $('#tblCustomerBody>tr').on('click', function(){
+                let id = $(this).children('td:eq(0)').text();
+                let name = $(this).children('td:eq(1)').text();
+                let address = $(this).children('td:eq(2)').text();
+                let salary = $(this).children('td:eq(3)').text();
+
+                $('#customerId').val(id);
+                $('#custName').val(name);
+                $('#custAddress').val(address);
+                $('#custSalary').val(salary);
+
+            });
+        }else {
+            alert("Something went wrong..!");
+        }
+
+        loadAllCustomerToTable();
+
+        $('#tblCustomerBody>tr').on('click', function(){
+            let id = $(this).children('td:eq(0)').text();
+            let name = $(this).children('td:eq(1)').text();
+            let address = $(this).children('td:eq(2)').text();
+            let salary = $(this).children('td:eq(3)').text();
+
+            $('#customerId').val(id);
+            $('#custName').val(name);
+            $('#custAddress').val(address);
+            $('#custSalary').val(salary);
+
+        });
+        clearFields();
+    }else{
+
+    }
+
+
+});
 
 //...................function.........................
+function deleteCustomer(id) {
+    let customer = searchId(id);
+    if(customer != null){
+        let indexNumber = customerObjectsArray.indexOf(customer);
+        customerObjectsArray.splice(indexNumber, 1);
+        return true;
+    }else {
+        return false;
+    }
+}
+
 function searchId(id) {
     for (var i in customerObjectsArray) {
         if (customerObjectsArray[i].getCustomerId() == id) return customerObjectsArray[i];

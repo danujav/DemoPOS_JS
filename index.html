@@ -105,85 +105,69 @@
 </section>
 
 <section id="secondSection">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-6">
-                <section class="container-fluid">
-                    <div class="col-12">
-                        <table class="table table-hover mt-2">
-                            <thead class="bg-danger text-white">
-                            <tr>
-                                <th>Customer ID</th>
-                                <th>Customer Name</th>
-                                <th>Customer Address</th>
-                                <th>Customer Email</th>
-                            </tr>
-                            </thead>
-                            <tbody id="tblBody" class="table table-hover">
+    <h1 class="m-lg-4">Manage Customer</h1>
 
-                            </tbody>
-                        </table>
+    <div class="row mt-5 m-lg-5">
+        <div class="column col-6">
+            <div class="bg-dark card-header text-white col-4 top-100 ">Customer Detail</div>
+            <div class="card col-12 ">
+                <div class="card-body">
+                    <div class="mb-3 form-group col-4 d-inline-block">
+                        <label for="customerId" class="form-label">Customer ID</label>
+                        <input type="text" class="form-control" id="customerId" aria-describedby="customerID">
                     </div>
-                </section>
-            </div>
-            <div class="col-12">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-7">
 
-                            <form>
-                                <div class="mb-3">
-                                    <label for="customerID" class="form-label">Custemer ID</label>
-                                    <input id="customerID" type="text" class="form-control" id="customerID" aria-describedby="customerID">
-                                </div>
-
-                            </form>
-                            <form>
-                                <div class="mb-3">
-                                    <label for="customerName" class="form-label">Customer Name</label>
-                                    <input id="customerName" type="text" class="form-control" id="customerName" aria-describedby="customerName">
-                                </div>
-
-                            </form>
-                            <form>
-                                <div class="mb-3">
-                                    <label for="customerAddress" class="form-label">Customer Address</label>
-                                    <input id="customerAddress" type="text" class="form-control" id="customerAddress" aria-describedby="customerAddress">
-                                </div>
-
-                            </form>
-                            <form>
-                                <div class="mb-3">
-                                    <label for="customerEmail" class="form-label">Customer Email</label>
-                                    <input id="customerEmail" type="email" class="form-control" id="customerEmail" aria-describedby="customerEmail">
-                                </div>
-
-                            </form>
-
-                        </div>
-                        <div class="col-5">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <button id="btnSave" type="button" class="btn btn-success w-100 mt-5 rounded-pill">Save</button>
-                                    </div>
-                                    <div class="col-12">
-                                        <button id="btnupdate" type="button" class="btn btn-info w-100 mt-5 text-white rounded-pill">Update</button>
-                                    </div>
-                                    <div class="col-12">
-                                        <button type="button" class="btn btn-danger w-100 mt-5 rounded-pill">Delete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="mb-3 form-group col-6 d d-inline-block">
+                        <label for="customerName" class="form-label">Customer Name</label>
+                        <input type="text" class="form-control" id="custName" aria-describedby="customerName">
                     </div>
+
+                    <div class="mb-3 form-group col-10 d d-inline-block">
+                        <label for="custAddress" class="form-label">Customer Address</label>
+                        <input type="text" class="form-control" id="custAddress" aria-describedby="custAddress">
+                    </div>
+
+                    <div class="mb-3 form-group col-10 ">
+                        <label for="custSalary" class="form-label">Customer Salary</label>
+                        <input type="text" class="form-control" id="custSalary" aria-describedby="custSalary">
+                    </div>
+
+                    <button type="button" class="btn btn-outline-primary">Add</button>
+                    <button type="button" class="btn btn-outline-secondary">Update</button>
+                    <button type="button" class="btn btn-outline-danger">Delete</button>
+                    <button type="button" class="btn btn-warning">cancel</button>
+
                 </div>
             </div>
 
         </div>
+        <div class="column col-6">
+            <table class="table table-hover ">
+                <thead class="bg-danger text-white">
+                <tr>
+                    <th>Item Code</th>
+                    <th>Description</th>
+                    <th>Qty On Hand</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody class="table table-hover">
+                <tr>
+                    <td>I001</td>
+                    <td>Dhal 5KG</td>
+                    <td>65</td>
+                    <td>150.00</td>
+                </tr>
+                <tr>
+                    <td>I002</td>
+                    <td>Sugar 1KG</td>
+                    <td>125</td>
+                    <td>150.00</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-
-
 </section>
 
 <section id="thirdSection">

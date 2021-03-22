@@ -132,10 +132,10 @@
                         <input type="text" class="form-control" id="custSalary" aria-describedby="custSalary">
                     </div>
 
-                    <button type="button" class="btn btn-outline-primary">Add</button>
-                    <button type="button" class="btn btn-outline-secondary">Update</button>
-                    <button type="button" class="btn btn-outline-danger">Delete</button>
-                    <button type="button" class="btn btn-warning">cancel</button>
+                    <button id="btnCustomerAdd" type="button" class="btn btn-outline-primary">Add</button>
+                    <button id="btnCustomerUpdate" type="button" class="btn btn-outline-secondary">Update</button>
+                    <button id="btnCustomerDelete" type="button" class="btn btn-outline-danger">Delete</button>
+                    <button id="btnCancel" type="button" class="btn btn-warning">cancel</button>
 
                 </div>
             </div>
@@ -145,25 +145,14 @@
             <table class="table table-hover ">
                 <thead class="bg-danger text-white">
                 <tr>
-                    <th>Item Code</th>
-                    <th>Description</th>
-                    <th>Qty On Hand</th>
-                    <th>Price</th>
+                    <th>Customer ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Salary</th>
                 </tr>
                 </thead>
-                <tbody class="table table-hover">
-                <tr>
-                    <td>I001</td>
-                    <td>Dhal 5KG</td>
-                    <td>65</td>
-                    <td>150.00</td>
-                </tr>
-                <tr>
-                    <td>I002</td>
-                    <td>Sugar 1KG</td>
-                    <td>125</td>
-                    <td>150.00</td>
-                </tr>
+                <tbody id="tblCustomerBody" class="table table-hover">
+
                 </tbody>
             </table>
         </div>
@@ -580,18 +569,83 @@
             <div class="card col-12 ">
                 <div class="card-body">
 
+                    <div class="form-group col-4 d-inline-block">
+                        <lable>Total:</lable>
+                        <div class="col-12">
+                            <span class="text-primary" style="font-size: 30px" id="lblTotal">0.00</span>
+                            Rs/=
+                        </div>
+                    </div>
+
+                    <div class="form-group col-4 d-inline-block m-lg-5">
+                        <lable>Sub Total:</lable>
+                        <div class="col-12">
+                            <span class="text-danger" style="font-size: 30px" id="lblSubTotal">0.00</span>
+                            Rs/=
+                        </div>
+                    </div>
+
+                    <div class="mb-3 form-group col-5 d-inline-block m-lg-2">
+                        <label for="payment" class="form-label">Payment</label>
+                        <input type="text" class="form-control" id="payment" aria-describedby="payment">
+                    </div>
+
+                    <div class="mb-3 form-group col-5 d-inline-block m-lg-2">
+                        <label for="discount" class="form-label">Discount</label>
+                        <input type="text" class="form-control" id="discount" aria-describedby="discount">
+                    </div>
+
+                    <div class="mb-3 form-group col-5 d-inline-block m-lg-2">
+                        <label for="balance" class="form-label">Balance</label>
+                        <input type="text" class="form-control" id="balance" aria-describedby="balance">
+                    </div>
+
+                    <div class="form-group col-4 mt-4">
+                        <button type="submit" class="btn btn-outline-primary fw-bold" id="btnPlaceOrder">Place Order</button>
+                    </div>
 
                 </div>
             </div>
         </div>
     </div>
 
-
+    <div class="column">
+        <table class="table table-hover ">
+            <thead class="bg-danger text-white">
+            <tr>
+                <th>Item Code</th>
+                <th>Description</th>
+                <th>Unit Price</th>
+                <th>QTY</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody class="table table-hover">
+            <tr>
+                <td>I001</td>
+                <td>Dhal 5KG</td>
+                <td>65.00</td>
+                <td>2</td>
+                <td>130.00</td>
+            </tr>
+            <tr>
+                <td>I005</td>
+                <td>Sugar 1KG</td>
+                <td>125.00</td>
+                <td>2</td>
+                <td>300.00</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </section>
 
 <script src="asserts/js/bootstrap.js"></script>
 <script src="asserts/js/jquery-3.6.0.min.js"></script>
-<script src="controller/dashboard.js"></script>
+<script src="controller/DashboardController.js"></script>
+<script src="controller/CustomerController.js"></script>
+<script src="db/DB.js"></script>
+<script src="dto/CustomerDTO.js"></script>
 
 </body>
 </html>

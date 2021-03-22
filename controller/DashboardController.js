@@ -1,10 +1,10 @@
-var dashboard = $('#firstSection');
+var dashboardController = $('#firstSection');
 var manageCustomer = $('#secondSection');
 var manageItem = $('#thirdSection')
 var order = $('#fourthSection')
 
 manageCustomer.hide();
-dashboard.show();
+dashboardController.show();
 manageItem.hide();
 order.hide();
 

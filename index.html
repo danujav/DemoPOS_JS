@@ -118,7 +118,7 @@
                     </div>
 
                     <div class="mb-3 form-group col-6 d d-inline-block">
-                        <label for="customerName" class="form-label">Customer Name</label>
+                        <label for="custName" class="form-label">Customer Name</label>
                         <input type="text" class="form-control" id="custName" aria-describedby="customerName">
                     </div>
 
@@ -310,14 +310,14 @@
 </section>
 
 <section id="fourthSection">
-    <div class="container-fluid">
+    <!--<div class="container-fluid">
         <div class="row">
             <div class="col-7">
-                <!--//this is for place order side-->
+                &lt;!&ndash;//this is for place order side&ndash;&gt;
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <!--//this is for form part-->
+                            &lt;!&ndash;//this is for form part&ndash;&gt;
                             <form class="mt-3 d-inline-block">
                                 <div class="mb-3">
                                     <label for="orderID" class="form-label">Order ID</label>
@@ -376,7 +376,7 @@
                         </div>
 
                         <div class=" col-sm mx-0">
-                            <!--//this is for talbe part-->
+                            &lt;!&ndash;//this is for talbe part&ndash;&gt;
                             <section class="container">
                                 <div class="col-12">
                                     <table class="container-fluid table table-hover mt-2">
@@ -432,11 +432,11 @@
                 </div>
             </div>
             <div class="col-5">
-                <!--//this is for total side-->
+                &lt;!&ndash;//this is for total side&ndash;&gt;
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-                            <!--One of three columns-->
+                            &lt;!&ndash;One of three columns&ndash;&gt;
                             <div class="col-12">
                                 <div class="card mt-4">
                                     <div class="card-body">
@@ -453,7 +453,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <!--One of three columns-->
+                            &lt;!&ndash;One of three columns&ndash;&gt;
                             <div class="col-12">
                                 <div class="card mt-5">
                                     <div class="card-body">
@@ -481,7 +481,111 @@
                 </div>
             </div>
         </div>
+    </div>-->
+
+    <div class="row mt-4">
+        <div class="column col-4">
+            <div class="text-white bg-danger card-header" style="font-size: 25px">Invoice Detail</div>
+            <div class="card col-12 ">
+                <div class="card-body">
+
+                    <div class="mb-3 form-group col-5 d-inline-block">
+                        <label for="orderId" class="form-label">Order ID</label>
+                        <input type="text" class="form-control" id="orderId" aria-describedby="orderId">
+                    </div>
+
+                    <div class="mb-3 form-group col-5 d-inline-block m-lg-2">
+                        <label for="orderDate" class="form-label">Order Date</label>
+                        <input type="date" class="form-control" id="orderDate" aria-describedby="orderDate">
+                    </div>
+
+                    <div class="mb-3 form-group col-5 d-inline-block">
+                        <label for="cmbCustomerID" class="form-label">Select Customer ID</label>
+                        <select class="form-control" id="cmbCustomerID">
+                            <option selected="selected" disabled="disabled">-Select Customer-</option>
+                            <span class="control-error" id="lblselectid"></span>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 form-group col-5 d-inline-block m-lg-2">
+                        <label for="customId" class="form-label">Customer ID</label>
+                        <input type="text" class="form-control" id="customId" aria-describedby="customId">
+                    </div>
+
+                    <div class="mb-3 form-group col-5 d-inline-block">
+                        <label for="customName" class="form-label">Customer Name</label>
+                        <input type="text" class="form-control" id="customName" aria-describedby="customName">
+                    </div>
+
+                    <div class="mb-3 form-group col-5 d-inline-block m-lg-2">
+                        <label for="customSalary" class="form-label">Customer Salary</label>
+                        <input type="text" class="form-control" id="customSalary" aria-describedby="customSalary">
+                    </div>
+
+                    <div class="mb-3 form-group col-11 d-inline-block">
+                        <label for="customAddress" class="form-label">Customer address</label>
+                        <input type="text" class="form-control" id="customAddress" aria-describedby="customAddress">
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="column col-4">
+            <div class="text-white bg-danger card-header" style="font-size: 25px">Item Detail</div>
+            <div class="card col-12 ">
+                <div class="card-body">
+
+                    <div class="mb-3 form-group col-5 d-inline-block">
+                        <label for="cmbtItemCode" class="form-label">Select Item ID</label>
+                        <select class="form-control" id="cmbtItemCode">
+                            <option selected="selected" disabled="disabled">-Select Item Code-</option>
+                            <span class="control-error" id="lblselectItemid"></span>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 form-group col-5 d-inline-block m-lg-2">
+                        <label for="itemCode" class="form-label">Item Code</label>
+                        <input type="text" class="form-control" id="itemCodeDetail" aria-describedby="itemCode">
+                    </div>
+
+                    <div class="mb-3 form-group col-11 d-inline-block">
+                        <label for="descriptionItem" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="descriptionItem" aria-describedby="descriptionItem">
+                    </div>
+
+                    <div class="mb-3 form-group col-5 d-inline-block m-lg-2">
+                        <label for="qtyOnHandItem" class="form-label">QTY On Hand</label>
+                        <input type="text" class="form-control" id="qtyOnHandItem" aria-describedby="qtyOnHandItem">
+                    </div>
+
+                    <div class="mb-3 form-group col-5 d-inline-block m-lg-2">
+                        <label for="unitPrice" class="form-label">Unit Price</label>
+                        <input type="text" class="form-control" id="unitPrice" aria-describedby="unitPrice">
+                    </div>
+
+                    <div class="form-group col-8">
+                        <lable>Order Quantity</lable>
+                        <input type="number" min="0" id="txtOrderQTY" class="form-control">
+                        <span class="control-error" id="lblorderqty"></span>
+                    </div>
+                    <div class="form-group col-4 mt-4">
+                        <button type="submit" class="btn btn-outline-primary fw-bold" id="btnAddToCart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column col-4">
+            <div class="text-white bg-danger card-header" style="font-size: 25px">Payment Detail</div>
+            <div class="card col-12 ">
+                <div class="card-body">
+
+
+                </div>
+            </div>
+        </div>
     </div>
+
 
 </section>
 

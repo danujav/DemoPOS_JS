@@ -1,9 +1,9 @@
 
 function CustomerDTO(id, name, address, salary) {
-    var __id = id;
-    var __name = name;
-    var __address = address;
-    var __salary = salary;
+    let __id = id;
+    let __name = name;
+    let __address = address;
+    let __salary = salary;
 
     this.getCustomerId = function () {
         return __id;

@@ -143,6 +143,7 @@
         </div>
         <div class="column col-6">
             <table class="table table-hover ">
+
                 <thead class="bg-danger text-white">
                 <tr>
                     <th>Customer ID</th>
@@ -172,89 +173,7 @@
                         <th>Price</th>
                     </tr>
                     </thead>
-                    <tbody class="table table-hover">
-                    <tr>
-                        <td>I001</td>
-                        <td>Dhal 5KG</td>
-                        <td>65</td>
-                        <td>150.00</td>
-                    </tr>
-                    <tr>
-                        <td>I002</td>
-                        <td>Sugar 1KG</td>
-                        <td>125</td>
-                        <td>150.00</td>
-                    </tr>
-
-                    <tr>
-                        <td>I003</td>
-                        <td>Raththi 500G</td>
-                        <td>65</td>
-                        <td>275.00</td>
-                    </tr>
-
-                    <tr>
-                        <td>I004</td>
-                        <td>Yogurt</td>
-                        <td>45</td>
-                        <td>25.00</td>
-                    </tr>
-                    <tr>
-                        <td>I005</td>
-                        <td>Yogurt</td>
-                        <td>45</td>
-                        <td>25.00</td>
-                    </tr>
-                    <tr>
-                        <td>I006</td>
-                        <td>Keeri Samba 10KG</td>
-                        <td>20</td>
-                        <td>1100.00</td>
-                    </tr>
-                    <tr>
-                        <td>I007</td>
-                        <td>Chuingum</td>
-                        <td>65</td>
-                        <td>450.00</td>
-                    </tr>
-                    <tr>
-                        <td>I008</td>
-                        <td>Coca Cola Buddy</td>
-                        <td>24</td>
-                        <td>65.00</td>
-                    </tr>
-                    <tr>
-                        <td>I009</td>
-                        <td>Sprite</td>
-                        <td>30</td>
-                        <td>65.00</td>
-                    </tr>
-                    <tr>
-                        <td>I010</td>
-                        <td>bites</td>
-                        <td>15</td>
-                        <td>20.00</td>
-                    </tr>
-                    <tr>
-                        <td>I011</td>
-                        <td>Maree biscuit</td>
-                        <td>60</td>
-                        <td>35.00</td>
-                    </tr>
-                    <!--<tr>
-                        <td>I012</td>
-                        <td>Milo</td>
-                        <td>20</td>
-                        <td>60.00</td>
-                    </tr>-->
-                    <!-- <tr>
-                         <td>I013</td>
-                         <td>Cream Cracker 50gG</td>
-                         <td>40</td>
-                         <td>50.00</td>
-                     </tr>-->
-                    </tbody>
-                    <tbody>
+                    <tbody id="tblItem" class="table table-hover">
 
                     </tbody>
                 </table>
@@ -263,7 +182,7 @@
                 <form class="mt-3">
                     <div class="mb-3">
                         <label for="itemCode" class="form-label">Item Code</label>
-                        <input type="text" class="form-control" id="itemCode" aria-describedby="itemCode">
+                        <input id="txtItemCode" type="text" class="form-control" id="itemCode" aria-describedby="itemCode">
                     </div>
 
                 </form>
@@ -271,27 +190,27 @@
                 <form>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <input type="text" class="form-control" id="description" aria-describedby="description">
+                        <input id="txtDescription" type="text" class="form-control" id="description" aria-describedby="description">
                     </div>
 
                 </form>
                 <form>
                     <div class="mb-3">
                         <label for="qtyOnHand" class="form-label">Qty On Hand</label>
-                        <input type="text" class="form-control" id="qtyOnHand" aria-describedby="qtyOnHand">
+                        <input id="txtQtyOnHand" type="text" class="form-control" id="qtyOnHand" aria-describedby="qtyOnHand">
                     </div>
 
                 </form>
                 <form>
                     <div class="mb-3">
                         <label for="price" class="form-label">Price</label>
-                        <input type="text" class="form-control" id="price" aria-describedby="price">
+                        <input id="txtPrice" type="text" class="form-control" id="price" aria-describedby="price">
                     </div>
 
                 </form>
-                <button type="button" class="btn btn-success w-100 rounded-pill">Save</button>
-                <button type="button" class="btn btn-info w-100 mt-3 text-white rounded-pill">Update</button>
-                <button type="button" class="btn btn-danger w-100 mt-3 rounded-pill">Delete</button>
+                <button id="btnSave" type="button" class="btn btn-success w-100 rounded-pill">Save</button>
+                <button id="btnUpdate" type="button" class="btn btn-info w-100 mt-3 text-white rounded-pill">Update</button>
+                <button id="btnDelete" type="button" class="btn btn-danger w-100 mt-3 rounded-pill">Delete</button>
             </div>
         </div>
     </div>
@@ -646,6 +565,8 @@
 <script src="controller/CustomerController.js"></script>
 <script src="db/DB.js"></script>
 <script src="dto/CustomerDTO.js"></script>
+<script src="controller/ItemController.js"></script>
+<script src="dto/ItemDTO.js"></script>
 
 </body>
 </html>

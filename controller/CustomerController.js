@@ -92,13 +92,9 @@ btnCustomerUpdate.click( function () {
         });
 
         clearFields();
-    }else{
-
     }
 
   //loadAllCustomerToTable();
-
-
 });
 
 btnCustomerDelete.click(function () {

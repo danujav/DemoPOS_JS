@@ -44,6 +44,30 @@ $('#btnItem').click(function () {
     order.hide();
 });
 
+function loadCustomerId() {
+    let allCustomer = customerObjectsArray;
+    let count = 0;
+    $('#cmbBoxCustomerId').children().remove();
+    $('#cmbBoxCustomerId').append("<option>--Select--</option>");
+    $($('#cmbBoxCustomerId').children().get(0)).attr('selected', 'true');
+    $($('#cmbBoxCustomerId').children().get(0)).attr('disabled', 'true');
+
+    allCustomer.forEach(function () {
+        $('#cmbBoxCustomerId').append("<option>" + allCustomer[count].getCustomerId() + "</option>");
+        count++;
+    });
+    $('#cmbBoxCustomerId').on('change', function () {
+        for (var i in allCustomer) {
+            if ($('#cmbBoxCustomerId :selected').val() === allCustomer[i].getCustomerId()) {
+                $('#customId').val(allCustomer[i].getCustomerId());
+                $('#customName').val(allCustomer[i].getCustomerName());
+                $('#customAddress').val(allCustomer[i].getCustomerAddress());
+                $('#customSalary').val(allCustomer[i].getCustomerSalary());
+            }
+        }
+    });
+}
+
 $('#btnOrder').click(function () {
     var dashboard = $('#firstSection');
     var manageCustomer = $('#secondSection');
@@ -54,5 +78,9 @@ $('#btnOrder').click(function () {
     dashboard.hide();
     manageItem.hide();
     order.show();
+
+    alert("work")
+    loadCustomerId();
+
 });
 

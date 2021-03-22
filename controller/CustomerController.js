@@ -40,10 +40,11 @@ btnCustomerAdd.click(function () {
             $('#custSalary').val(salary);
 
         });
-        clearFields();
+
     }else{
         alert("oops....! Something Wrong..!")
     }
+    clearFields();
 
 });
 

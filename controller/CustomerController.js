@@ -40,7 +40,6 @@ btnCustomerAdd.click(function () {
             $('#custSalary').val(salary);
 
         });
-
         clearFields();
     }else{
         alert("oops....! Something Wrong..!")
@@ -48,9 +47,83 @@ btnCustomerAdd.click(function () {
 
 });
 
+btnCustomerUpdate.click( function () {
+
+    let id = $('#customerId').val();
+    let name = $('#custName').val();
+    let address = $('#custAddress').val();
+    let salary = $('#custSalary').val();
+
+    let option=confirm(`Do you want to Update Customer ID: ${id}`);
+
+    if(option) {
+        let res = updateCustomer(id, name, address, salary);
+        if (res) {
+            alert("Customer Updated..!");
+            $('#tblCustomerBody>tr').on('click', function(){
+                let id = $(this).children('td:eq(0)').text();
+                let name = $(this).children('td:eq(1)').text();
+                let address = $(this).children('td:eq(2)').text();
+                let salary = $(this).children('td:eq(3)').text();
+
+                $('#customerId').val(id);
+                $('#custName').val(name);
+                $('#custAddress').val(address);
+                $('#custSalary').val(salary);
+
+            });
+
+        } else {
+            alert("Something went Wrong..!")
+        }
+
+        loadAllCustomerToTable();
+        $('#tblCustomerBody>tr').on('click', function(){
+            let id = $(this).children('td:eq(0)').text();
+            let name = $(this).children('td:eq(1)').text();
+            let address = $(this).children('td:eq(2)').text();
+            let salary = $(this).children('td:eq(3)').text();
+
+            $('#customerId').val(id);
+            $('#custName').val(name);
+            $('#custAddress').val(address);
+            $('#custSalary').val(salary);
+
+        });
+    }
+
+
+  //      loadAllCustomerToTable();
+    clearFields();
+
+});
+
 
 
 //...................function.........................
+function searchId(id) {
+    for (var i in customerObjectsArray) {
+        if (customerObjectsArray[i].getCustomerId() == id) return customerObjectsArray[i];
+    }
+    return null;
+
+}
+
+function updateCustomer(id, name, address, salary) {
+    let customer = searchId(id);
+
+    if(customer != null){
+        customer.setCustomerName(name);
+        customer.setCustomerAddress(address);
+        customer.setCustomerSalary(salary);
+
+        return true;
+    }else{
+        return false;
+    }
+
+}
+
 function clearFields() {
     $('#customerId').val("");
     $('#custName').val("");

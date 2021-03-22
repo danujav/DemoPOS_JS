@@ -7,7 +7,10 @@ let btnCancel = $('#btnCancel');
 
 //...................events.........................
 
+
 btnCustomerAdd.click(function () {
+   // $('#tblCustomerBody>tr').off('click');    // i use this here to of click event to the table row.
+
     //input text-fields
     let customerId = $('#customerId').val();
     let customerName = $('#custName').val();
@@ -18,12 +21,34 @@ btnCustomerAdd.click(function () {
     let res = saveCustomer(customerId, customerName, customerAddress, customerSalary);
 
     if(res){
+
+        //bind event to the table row
+
+       /* $('#tblCustomerBody>tr').click(function(){
+            console.log($(this).children('td:eq(0)'))
+        })*/
+
+        $('#tblCustomerBody>tr').on('click', function(){
+            let id = $(this).children('td:eq(0)').text();
+            let name = $(this).children('td:eq(1)').text();
+            let address = $(this).children('td:eq(2)').text();
+            let salary = $(this).children('td:eq(3)').text();
+
+            $('#customerId').val(id);
+            $('#custName').val(name);
+            $('#custAddress').val(address);
+            $('#custSalary').val(salary);
+
+        });
+
         clearFields();
     }else{
         alert("oops....! Something Wrong..!")
     }
 
 });
+
+
 
 //...................function.........................
 function clearFields() {
@@ -46,6 +71,7 @@ function saveCustomer(customerId, customerName, customerAddress, customerSalary)
 
     return true
 }
+
 function loadAllCustomerToTable() {
     //get the customerDTO array
     let customer = getAllCustomerDTOs();

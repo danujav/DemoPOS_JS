@@ -21,3 +21,27 @@ function loadCustomerId() {
         }
     });
 }
+
+function loadItemCode() {
+    let allItems = itemObjectsArray;
+    let count = 0;
+    $('#cmbItemCode').children().remove();
+    $('#cmbItemCode').append("<option>--Select--</option>");
+    $($('#cmbItemCode').children().get(0)).attr('selected', 'true');
+    $($('#cmbItemCode').children().get(0)).attr('disabled', 'true');
+
+    allItems.forEach(function () {
+        $('#cmbItemCode').append("<option>" + allItems[count].getItemCode() + "</option>");
+        count++;
+    });
+    $('#cmbItemCode').on('change', function () {
+        for (var i in allItems) {
+            if ($('#cmbItemCode :selected').val() === allItems[i].getItemCode()) {
+                $('#txtItemCode').val(allItems[i].getItemCode());
+                $('#txtDescription').val(allItems[i].getDescription());
+                $('#txtQtyOnHand').val(allItems[i].getQtyOnHand());
+                $('#txtUnitPrice').val(allItems[i].getPrice());
+            }
+        }
+    });
+}

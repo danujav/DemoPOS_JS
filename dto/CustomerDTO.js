@@ -1,4 +1,3 @@
-
 function CustomerDTO(id, name, address, salary) {
     let __id = id;
     let __name = name;
@@ -18,17 +17,17 @@ function CustomerDTO(id, name, address, salary) {
         return __salary;
     }
 
-    this.setCustomerId = function (newID) {
-        __id = newID;
+    this.setCustomerId = function (id) {
+        __id = id;
     }
-    this.setCustomerName = function (newName) {
-        __name = newName;
+    this.setCustomerName = function (name) {
+        __name = name;
     }
-    this.setCustomerAddress = function (newAddress) {
-        __address = newAddress;
+    this.setCustomerAddress = function (address) {
+        __address = address;
     }
-    this.setCustomerSalary = function (newSalary) {
-        __salary = newSalary;
+    this.setCustomerSalary = function (salary) {
+        __salary = salary;
     }
 
 }

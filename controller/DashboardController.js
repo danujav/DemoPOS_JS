@@ -44,6 +44,59 @@ $('#btnItem').click(function () {
     order.hide();
 });
 
+/*function loadItemCode() {
+    let allItems = itemObjectsArray;
+    let count = 0;
+    $('#cmbItemCode').children().remove();
+    $('#cmbItemCode').append("<option>--Select--</option>");
+    $($('#cmbItemCode').children().get(0)).attr('selected', 'true');
+    $($('#cmbItemCode').children().get(0)).attr('disabled', 'true');
+
+    allItems.forEach(function () {
+        $('#cmbItemCode').append("<option>" + allItems[count].getItemCode() + "</option>");
+        count++;
+    });
+    $('#cmbItemCode').on('change', function () {
+        for (var i in allItems) {
+            if ($('#cmbItemCode :selected').val() === allItems[i].getItemCode()) {
+               /!* $('#txtItemCode').val(allItems[i].getItemCode());
+                $('#txtDescription').val(allItems[i].getDescription());
+                $('#txtQtyOnHand').val(allItems[i].getQtyOnHand());
+                $('#txtUnitPrice').val(allItems[i].getPrice());*!/
+
+                console.log("done")
+            }
+        }
+    });
+}*/
+
+function loadItemCode() {
+    let allItem = itemObjectsArray;
+    let count = 0;
+    $('#cmbItemCode').children().remove();
+    $('#cmbItemCode').append("<option>--Select--</option>");
+    $($('#cmbItemCode').children().get(0)).attr('selected', 'true');
+    $($('#cmbItemCode').children().get(0)).attr('disabled', 'true');
+
+    allItem.forEach(function () {
+        $('#cmbItemCode').append("<option>" + allItem[count].getItemCode() + "</option>");
+        count++;
+    });
+
+    $('#cmbItemCode').on('change', function () {
+        console.log("this is befor for each")
+        for (var i in allItem) {
+          //  console.log(allItem[i].getItemCode());
+            if ($('#cmbItemCode :selected').val() == allItem[i].getItemCode()) {
+                $('#itemCodeDetail').val(allItem[i].getItemCode());
+                $('#descriptionItem').val(allItem[i].getDescription());
+                $('#qtyOnHandItem').val(allItem[i].getQtyOnHand());
+                $('#unitPrice').val(allItem[i].getPrice());
+            }
+        }
+    });
+}
+
 function loadCustomerId() {
     let allCustomer = customerObjectsArray;
     let count = 0;
@@ -57,6 +110,7 @@ function loadCustomerId() {
         count++;
     });
     $('#cmbBoxCustomerId').on('change', function () {
+        console.log("this is before cusotmer for each")
         for (var i in allCustomer) {
             if ($('#cmbBoxCustomerId :selected').val() === allCustomer[i].getCustomerId()) {
                 $('#customId').val(allCustomer[i].getCustomerId());
@@ -81,6 +135,6 @@ $('#btnOrder').click(function () {
 
     alert("work")
     loadCustomerId();
-
+    loadItemCode();
 });
 

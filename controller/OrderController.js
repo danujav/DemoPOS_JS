@@ -1,47 +1,52 @@
-function loadCustomerId() {
-    let allCustomer = customerObjectsArray;
-    let count = 0;
-    $('#cmbBoxCustomerId').children().remove();
-    $('#cmbBoxCustomerId').append("<option>--Select--</option>");
-    $($('#cmbBoxCustomerId').children().get(0)).attr('selected', 'true');
-    $($('#cmbBoxCustomerId').children().get(0)).attr('disabled', 'true');
 
-    allCustomer.forEach(function () {
-        $('#cmbBoxCustomerId').append("<option>" + allCustomer[count].getCode() + "</option>");
-        count++;
-    });
-    $('#cmbBoxCustomerId').on('change', function () {
-        for (var i in allCustomer) {
-            if ($('#cmbBoxCustomerId :selected').val() === allCustomer[i].getItemCode()) {
-                $('#txtItemCode').val(allCustomer[i].getItemCode());
-                $('#txtDescription').val(allCustomer[i].getDescription());
-                $('#txtQtyOnHand').val(allCustomer[i].getQtyOnHand());
-                $('#txtUnitPrice').val(allCustomer[i].getPrice());
-            }
-        }
-    });
+
+$('#btnAddToCart').click(function(){
+    alert("event trigger")
+    let itemCode = $('#itemCodeDetail').val();
+    let description = $('#descriptionItem').val();
+    let unitPrice = $('#unitPrice').val();
+    let qty = $('#txtOrderQTY').val();
+
+    let res = placeOrder(itemCode, description, unitPrice, qty);
+    if(res){
+        alert("done")
+    }else {
+        alert("error")
+    }
+})
+
+function placeOrder(itemCode, description, unitPrice, qty) {
+    let order = getAllOrder();
+    let placeOrderDTO = new PlaceOrderDTO(itemCode, description, unitPrice, qty);
+
+    order.push(placeOrderDTO);
+
+    loadAllOrderDetail();
+
+    return true;
+
+}
+function getAllOrder() {
+    return orderObjectsArray;
 }
 
-function loadItemCode() {
-    let allItems = itemObjectsArray;
-    let count = 0;
-    $('#cmbItemCode').children().remove();
-    $('#cmbItemCode').append("<option>--Select--</option>");
-    $($('#cmbItemCode').children().get(0)).attr('selected', 'true');
-    $($('#cmbItemCode').children().get(0)).attr('disabled', 'true');
+function loadAllOrderDetail() {
+    //get the CustomerDTO array
+    let order = getAllOrder();
 
-    allItems.forEach(function () {
-        $('#cmbItemCode').append("<option>" + allItems[count].getItemCode() + "</option>");
-        count++;
-    });
-    $('#cmbItemCode').on('change', function () {
-        for (var i in allItems) {
-            if ($('#cmbItemCode :selected').val() === allItems[i].getItemCode()) {
-                $('#txtItemCode').val(allItems[i].getItemCode());
-                $('#txtDescription').val(allItems[i].getDescription());
-                $('#txtQtyOnHand').val(allItems[i].getQtyOnHand());
-                $('#txtUnitPrice').val(allItems[i].getPrice());
-            }
-        }
-    });
+    $('#tblOrder').empty();
+
+    //get the one by one object from the array
+    for (let i in order){
+        let itemCode = order[i].getItemCode();
+        let description = order[i].getOderDescription();
+        let unitPrice = order[i].getUnitPrice();
+        let qty = order[i].getQty();
+
+        //set values for the html element
+        let row = "<tr><td>" +itemCode + "</td><td>" +description+ "</td><td>" +unitPrice + "</td><td>"+qty+"</td><td>"+ 10 + "</td></tr>";
+
+        //set above row to the table body.
+        $('#tblOrder').append(row);
+    }
 }

@@ -84,7 +84,6 @@ function loadItemCode() {
     });
 
     $('#cmbItemCode').on('change', function () {
-        console.log("this is befor for each")
         for (var i in allItem) {
           //  console.log(allItem[i].getItemCode());
             if ($('#cmbItemCode :selected').val() == allItem[i].getItemCode()) {
@@ -95,6 +94,16 @@ function loadItemCode() {
             }
         }
     });
+}
+
+function getCurrentDate() {
+   var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+
+     today = yyyy + '-' + mm + '-' + dd;
+    $("#orderDate").val(today);
 }
 
 function loadCustomerId() {
@@ -110,7 +119,6 @@ function loadCustomerId() {
         count++;
     });
     $('#cmbBoxCustomerId').on('change', function () {
-        console.log("this is before cusotmer for each")
         for (var i in allCustomer) {
             if ($('#cmbBoxCustomerId :selected').val() === allCustomer[i].getCustomerId()) {
                 $('#customId').val(allCustomer[i].getCustomerId());
@@ -133,8 +141,9 @@ $('#btnOrder').click(function () {
     manageItem.hide();
     order.show();
 
-    alert("work")
     loadCustomerId();
     loadItemCode();
+    getCurrentDate();
+    getCurrentDate();
 });
 
